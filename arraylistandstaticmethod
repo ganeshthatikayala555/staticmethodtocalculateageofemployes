@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Employee {
+    private String name;
+    private int age;
+
+    public Employee(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    // Static method to find the average age of a list of employees
+    public static double calculateAverageAge(List<Employee> employees) {
+        int totalAge = 0;
+        for (Employee employee : employees) {
+            totalAge += employee.getAge();
+        }
+        return (double) totalAge / employees.size();
+    }
+
+    public static void main(String[] args) {
+        List<Employee> employeeList = new ArrayList<>();
+        employeeList.add(new Employee("Alice", 28));
+        employeeList.add(new Employee("Bob", 35));
+        employeeList.add(new Employee("Carol", 42));
+
+        double averageAge = Employee.calculateAverageAge(employeeList);
+        System.out.println("Average Age: " + averageAge);
+    }
+}
